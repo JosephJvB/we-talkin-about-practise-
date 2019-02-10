@@ -61,11 +61,15 @@ function addNumbers(arr) {
   // return arr
   // calc numbers on clean tiles
   const board = arr.map((row, i) => row.map((t, j) => {
-    const upIsmine = i > 0 ? arr[i - 1][j] : 0
+    const upIsMine = i > 0 ? arr[i - 1][j] : 0
     const downIsMine = i < arr.length - 1 ? arr[i + 1][j] : 0
     const leftIsMine = j > 0 ? row[j - 1] : 0
     const rightIsMine = j < row.length - 1 ? row[j + 1] : 0
-    return Number(upIsmine + rightIsMine + downIsMine + leftIsMine)
+    const topRight = i > 0 && j < row.length - 1 ? arr[i - 1][j + 1] : 0
+    const botRight = i < arr.length - 1 && j < row.length - 1 ? arr[i + 1][j + 1] : 0
+    const topLeft = i > 0 && j > 0 ? arr[i - 1][j - 1] : 0
+    const botLeft = i < arr.length - 1 && j > 0 ? arr[i + 1][j - 1] : 0
+    return Number(upIsMine + rightIsMine + downIsMine + leftIsMine + topRight + botRight + topLeft + botLeft)
   }))
   // and this
   // add mines back
