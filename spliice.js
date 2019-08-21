@@ -32,6 +32,8 @@ for(let j = 0; j < 5; j++) {
     const n = i - offset < 0 ? cols.length + (i - offset) : i - offset
     next.push(cols[n])
   }
+  next.splice(1, 0, ' ')
+  next.splice(3, 0, ' ') // by the time you do this splice, the array has been changed
   console.log(next)
 }
 

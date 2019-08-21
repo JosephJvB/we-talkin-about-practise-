@@ -23,6 +23,7 @@ const obj = { func: (data) => {
 }
 
 // still havent found out why that then works im just a bad kid
+// because puppeteer is async and returned a promise smile
 
 // function saveMons(idx) {
 //   fs.readFile(`${__dirname}/pokeLibrary/hoennDex.json`, 'utf8', (err, data) => {
